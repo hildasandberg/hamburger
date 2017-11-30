@@ -13,3 +13,80 @@ header a {
   display: flex;
   justify-content: space-between;
 }
+.headerRow {
+  position: relative;
+  z-index: 2000;
+  background-color: #FFDFE7;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  display: none;
+  width: 100%;
+  background-color: white;
+  position: absolute;
+  top: -100%;
+  font-size: 30px;
+  transition: all 0.9s ease-in-out;
+  z-index: 1000;
+}
+
+.hamburger {
+  width: 64px;
+  height: 64px;
+  display: block;
+  cursor: pointer;
+  display: none;
+  padding: 10px;
+  text-align: center;
+  margin-left: 75%;
+}
+
+.hamburger-cb {
+ display: none;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 64px;
+  height: 10px;
+  background-color: red;
+  margin: 8px 0;
+  transition: 0.9s;
+  border-radius: 5px;
+}
+
+@media (max-width: 425px) {
+  .hamburger {
+    display: block;
+  }
+
+  .header-grid {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  li {
+    padding: 5px;
+  }
+
+  .hamburger-cb:checked ~ .menu {
+    top: 84px;
+  }
+
+  .hamburger-cb:checked + .headerRow .hamburger .bar1 {
+    transform: rotate(-45deg) translate(0, 25px);
+  }
+
+  .hamburger-cb:checked + .headerRow .hamburger .bar2 {
+    opacity: 0;
+  }
+
+  .hamburger-cb:checked + .headerRow .hamburger .bar3 {
+    transform: rotate(45deg) translate(0, -25px);
+  }
+
+}
